@@ -16,14 +16,15 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.foodrecommendationapp.LogoSection
+import com.example.foodrecommendationapp.MenuItem
 import com.example.foodrecommendationapp.R
 
 class ListScreen {
     @SuppressLint("NotConstructor")
     @Composable
-    fun ListFood(navController: NavController, modifier: Modifier, viewModel: FoodViewModel, foodNames : Array<String>) {
+    fun ListFood(navController: NavController, modifier: Modifier, viewModel: FoodViewModel) {
         var addedFood by remember { mutableStateOf("") }
-        var foodNames by remember {mutableStateOf(foodNames)}
+        var foodItems by remember {mutableStateOf(viewModel.foodItems)}
         val onFoodChange = { text: String -> addedFood = text }
         Column{
             LogoSection()
@@ -39,9 +40,9 @@ class ListScreen {
                     Button(onClick = {viewModel.updateFoodList(addedFood)}) {
                         Text(text =stringResource(R.string.additem))
                     }
-                    foodNames.forEach { food ->
+                    viewModel.foodItems.forEach { food ->
                         Button(onClick = {}, modifier.fillMaxWidth()) {
-                            Text(text = food.toString())
+                            Text(text = food.food_name)
                         }
                     }
                     Button(onClick = {navController.navigate(NavRoutes.Recommendation.route)}) {

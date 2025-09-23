@@ -53,7 +53,7 @@ fun FoodRecommendationApp(modifier: Modifier = Modifier) {
             recommendationScreen.Recommendation(navController = navController, modifier = modifier,viewModel = viewModel)
         }
         composable(ListFood.route) {
-            listScreen.ListFood(navController = navController, modifier = modifier,viewModel = viewModel, foodNames = foodNamesArray)
+            listScreen.ListFood(navController = navController, modifier = modifier,viewModel = viewModel)
         }
     }
 
