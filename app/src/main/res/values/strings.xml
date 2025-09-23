@@ -1,3 +1,28 @@
 <resources>
     <string name="app_name">FoodRecommendationApp</string>
+
+    <string name="app_description">Explore The Food Recommendation app to get recommendation on foods to try with nearby locations on where to get them and have fun making a list of foods!</string>
+
+    <string-array name="food_names">
+        <item>Croissant</item>
+        <item>Breakfast Wrap</item>
+        <item>Ice Cream</item>
+        <item>Coffe</item>
+        <item>Tea</item>
+        <item>Milkshake</item>
+    </string-array>
+
+    <string name="reroll">Reroll</string>
+
+    <string name="findfood">Find Food</string>
+
+    <string name="changelist">Change List</string>
+
+    <string name="savechanges">Save Changes</string>
+
+    <string name="additem">Add Item</string>
+
+    <string name="randomScreen">Random Screen</string>
+
+    <string name="listScreen">List Screen</string>
 </resources>
