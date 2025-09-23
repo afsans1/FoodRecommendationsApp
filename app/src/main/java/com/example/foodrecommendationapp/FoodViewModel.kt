@@ -44,25 +44,39 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
     var i by mutableIntStateOf(0)
 
     fun rerollFood() {
-        val newFood = foodItems.random()
-        currentFood = newFood.food_name
+        if(foodItems.isNotEmpty()) {
+            val newFood = foodItems.random()
+            currentFood = newFood.food_name
 
-        currentImage = when (newFood.food_name) {
-            "Croissant" -> R.drawable.croissant
-            "Breakfast Wrap" -> R.drawable.breakfast_wrap
-            "Ice Cream" -> R.drawable.ice_cream
-            "Coffee" -> R.drawable.coffee
-            "Tea" -> R.drawable.tea
-            "Milkshake" -> R.drawable.milkshake
-            else -> R.drawable.random_food
+            currentImage = when (newFood.food_name) {
+                "Croissant" -> R.drawable.croissant
+                "Breakfast Wrap" -> R.drawable.breakfast_wrap
+                "Ice Cream" -> R.drawable.ice_cream
+                "Coffee" -> R.drawable.coffee
+                "Tea" -> R.drawable.tea
+                "Milkshake" -> R.drawable.milkshake
+                else -> R.drawable.random_food
+            }
         }
     }
 
-    fun updateFoodList(addedFood : String){
+    fun updateFoodList(addedFood: String) {
         if (i < foodItems.size) {
-            foodItems.set(i, MenuItem(addedFood, R.drawable.random_food))
-            i = i + 1
-            if(i == foodItems.size) i =0;
+            val newList = foodItems.toMutableList()
+            newList[i] = MenuItem(addedFood, R.drawable.random_food)
+            foodItems = newList
+            i += 1
+            //validated so it adds from the top again
+            if (i == foodItems.size) i = 0
         }
     }
+
+    fun removeButton(foodName: String){
+        //validation so that there is at least on food item
+        if(foodItems.size > 1) {
+            val newList = foodItems.filter { it.food_name != foodName }
+            foodItems = newList.toMutableList()
+        }
+    }
+
 }

@@ -41,7 +41,7 @@ class ListScreen {
                         Text(text =stringResource(R.string.additem))
                     }
                     viewModel.foodItems.forEach { food ->
-                        Button(onClick = {}, modifier.fillMaxWidth()) {
+                        Button(onClick = {viewModel.removeButton(food.food_name)}, modifier.fillMaxWidth()) {
                             Text(text = food.food_name)
                         }
                     }
