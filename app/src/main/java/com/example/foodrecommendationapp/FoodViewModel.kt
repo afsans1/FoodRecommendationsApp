@@ -7,14 +7,15 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.foodrecommendationapp.R
 
-class FoodViewModel(aList: List<String>) : ViewModel() {
+class FoodViewModel(foodNames: Array<String>) : ViewModel() {
 
     // Properly initialized to something valid
     var currentFood by mutableStateOf("Coffee")
     var currentImage by mutableIntStateOf(R.drawable.coffee)
-
+    var foodNames by mutableStateOf(foodNames)
+    var i by mutableIntStateOf(0)
     // Function to pick a new random food + update image
-    fun rerollFood(foodNames: Array<String>) {
+    fun rerollFood() {
         val newFood = foodNames.random()
         currentFood = newFood
 
@@ -27,5 +28,14 @@ class FoodViewModel(aList: List<String>) : ViewModel() {
             "Milkshake" -> R.drawable.milkshake
             else -> R.drawable.random_food
         }
+    }
+
+    fun updateFoodList(addedFood : String){
+        if (i < foodNames.size) {
+            foodNames[i] = addedFood
+            i = i + 1
+            if(i == foodNames.size) i =0;
+        }
+        foodNames = foodNames
     }
 }
