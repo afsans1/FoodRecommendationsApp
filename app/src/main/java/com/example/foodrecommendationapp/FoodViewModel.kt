@@ -14,9 +14,12 @@ import com.example.foodrecommendationapp.R
 
 class FoodViewModel(foodNames: Array<String>) : ViewModel() {
 
-    fun getItems(items: Array<String>): List<String>{
-        return items.toMutableList()
+//    this method gets the list of foodNames and turns it into a mutable list
+    fun getItems(foodNames: Array<String>): List<String>{
+        return foodNames.toMutableList()
     }
+
+//    this method gets all the food images and stores them in an Integer list
     fun getImages() : List<Int>{
         val foodImages = mutableListOf<Int>()
         foodImages.add(R.drawable.croissant)
@@ -27,6 +30,11 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
         foodImages.add(R.drawable.milkshake)
         return foodImages
     }
+
+//    this method creates the list of MenuItems
+//    by assigning the correct image based on the menu item name
+//    both lists of images and names contain the same items in order so they
+//    get assigned to each other in the right order
     fun getMenuItems(items: Array<String>) : List<MenuItem>{
         val images = getImages()
         val foodItems = mutableListOf<MenuItem>()
@@ -42,10 +50,18 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
         return foodItems
     }
     // Properly initialized to something valid
+    // I decided to make the initial value to croissant since
+    // that food item has the same name in both english and french so there
+    // arent any discrepancies between the name of the item and the language
+    // the device is set to
     var currentFood by mutableStateOf("Croissant")
     var currentImage by mutableIntStateOf(R.drawable.croissant)
     var foodItems by mutableStateOf(getMenuItems(foodNames).toMutableList())
 
+
+    //this method randomly changes what the current item is by
+    //randomly getting an item from the array of MenuItems and
+    //and assigning it the right image to it based on the name(in english or in french)
     fun rerollFood() {
         if(foodItems.isNotEmpty()) {
             val newFood = foodItems.random()
@@ -64,12 +80,20 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
         }
     }
 
+    //this method creates a new list based on foodItems. It creates
+    //a new menu item with the string name of the food the user added
+    //and the default image for the added foods and adds it to that list.
+    //The foodItems list is then assigned to be the new modified list of menu items
     fun updateFoodList(addedFood: String) {
         val newList = foodItems.toMutableList()
         newList.add(MenuItem(addedFood, R.drawable.random_food))
         foodItems = newList
     }
 
+    //this method stores all the menu items that are not
+    //the one that is to be removed in a new list
+    //and foodItems is assigned to be that list that it turned into
+    //a mutable list
     fun removeButton(foodName: String){
         //validation so that there is at least on food item
         if(foodItems.size > 1) {

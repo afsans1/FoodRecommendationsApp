@@ -51,6 +51,11 @@ class RecommendationScreen {
                         .width(150.dp)
                         .height(150.dp)
                         .clickable {
+// The intents were coded based on Carlton Davis' example code and the android studio docs
+//https://gitlab.com/crdavis/intentsexamplecode/-/blob/master/app/src/main/java/com/example/intentsexamplecode/MainActivity.kt?ref_type=heads
+//: https://developer.android.com/guide/components/intentscommon
+//https://developer.android.com/guide/components/google-maps-intents
+
                             Intent(Intent.ACTION_MAIN).also { it.`package`="com.google.android.apps.maps"
                                 try {
                                     context.startActivity(it)
@@ -72,7 +77,7 @@ class RecommendationScreen {
                     onClick = {
                         val webIntent = Intent(
                         Intent.ACTION_VIEW,
-                        "https://www.google.com/search?q=${viewModel.currentFood} near Montreal, QC".toUri())
+                        "https://www.google.com/search?q=${viewModel.currentFood}&geo:0,0?".toUri())
                         context.startActivity(webIntent)
 
                     },

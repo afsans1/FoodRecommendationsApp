@@ -24,14 +24,15 @@ class ListScreen {
     @Composable
     fun ListFood(navController: NavController, modifier: Modifier, viewModel: FoodViewModel) {
         var addedFood by remember { mutableStateOf("") }
-        var foodItems by remember {mutableStateOf(viewModel.foodItems)}
+        //This code is from the Week-4-Jetpack-Compose-Navigation-And-Intents powerpoint slide 40
         val onFoodChange = { text: String -> addedFood = text }
         Column{
             LogoSection()
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
-
+                    //This code is from the Week-4-Jetpack-Compose-Navigation-And-Intents powerpoint slide 42
                     CustomTextField(
+                        //change the title to be in resources
                         title = "Enter a food you want to add", textState = addedFood,
                         onTextChange = onFoodChange
                     )
@@ -54,6 +55,7 @@ class ListScreen {
         }
     }
 
+//This code is from the Week-4-Jetpack-Compose-Navigation-And-Intents powerpoint slide 40
     @Composable
     fun CustomTextField (title: String, textState: String, onTextChange: (String) -> Unit)
     {
