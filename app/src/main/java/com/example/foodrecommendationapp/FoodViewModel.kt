@@ -13,30 +13,12 @@ import com.example.foodrecommendationapp.MenuItem
 import com.example.foodrecommendationapp.R
 
 class FoodViewModel(foodNames: Array<String>, foodImages: Array<String>) : ViewModel() {
-
-//    this method gets the list of foodNames and turns it into a mutable list
-    fun getItems(foodNames: Array<String>): List<String>{
-        return foodNames.toMutableList()
-    }
-
-//    this method gets all the food images and stores them in an Integer list
-    fun getImages() : List<Int>{
-        val foodImages = mutableListOf<Int>()
-        foodImages.add(R.drawable.croissant)
-        foodImages.add(R.drawable.breakfast_wrap)
-        foodImages.add(R.drawable.ice_cream)
-        foodImages.add(R.drawable.coffee)
-        foodImages.add(R.drawable.tea)
-        foodImages.add(R.drawable.milkshake)
-        return foodImages
-    }
-
+    
 //    this method creates the list of MenuItems
 //    by assigning the correct image based on the menu item name
 //    both lists of images and names contain the same items in order so they
 //    get assigned to each other in the right order
     fun getMenuItems(foodNames: Array<String>, foodImages: Array<String>) : List<MenuItem>{
-        val images = getImages()
         val foodItems = mutableListOf<MenuItem>()
         for(i in 0..foodNames.size){
             foodItems.add(MenuItem(foodNames[i], foodImages[i]))
