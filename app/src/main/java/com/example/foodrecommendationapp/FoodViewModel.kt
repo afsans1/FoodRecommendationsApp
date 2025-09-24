@@ -1,5 +1,6 @@
 import android.content.Intent
 import android.net.Uri
+import android.view.Menu
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -33,9 +34,9 @@ class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel(
     // the device is set to
     var currentFood by mutableStateOf("Croissant")
     var currentImage by mutableIntStateOf(R.drawable.croissant)
-    var foodItems by mutableStateOf(getMenuItems(foodNames, foodImages))
     val foodNames = foodNames
     val foodImages = foodImages
+    var foodItems by mutableStateOf(getMenuItems(foodNames, foodImages))
 
 
     //this method randomly changes what the current item is by
@@ -43,7 +44,7 @@ class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel(
     //and assigning it the right image to it based on the name(in english or in french)
     fun rerollFood() {
         if (foodItems.isNotEmpty()) {
-            val newFood = getMenuItems(foodNames, foodImages).random()
+            val newFood = foodItems.random()
             currentFood = newFood.food_name
             //have translation to get the correct image based on the foodname
             currentImage = newFood.food_image
@@ -59,7 +60,7 @@ class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel(
             val newList = foodItems.toMutableList()
             newList.add(MenuItem(addedFood, R.drawable.random_food))
             if (newList.size > foodNames.size + 1) {
-                newList.drop(0)
+                foodItems = newList.drop(0)
             } else {
                 foodItems = newList
             }
