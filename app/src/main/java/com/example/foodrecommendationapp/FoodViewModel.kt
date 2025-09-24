@@ -4,6 +4,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.initializer
@@ -41,8 +42,8 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
         return foodItems
     }
     // Properly initialized to something valid
-    var currentFood by mutableStateOf("Coffee")
-    var currentImage by mutableIntStateOf(R.drawable.coffee)
+    var currentFood by mutableStateOf("Croissant")
+    var currentImage by mutableIntStateOf(R.drawable.croissant)
     var foodItems by mutableStateOf(getMenuItems(foodNames).toMutableList())
 
     fun rerollFood() {
@@ -50,13 +51,14 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
             val newFood = foodItems.random()
             currentFood = newFood.food_name
 
+            //have translation to get the correct image based on the foodname
             currentImage = when (newFood.food_name) {
                 "Croissant" -> R.drawable.croissant
-                "Breakfast Wrap" -> R.drawable.breakfast_wrap
-                "Ice Cream" -> R.drawable.ice_cream
-                "Coffee" -> R.drawable.coffee
-                "Tea" -> R.drawable.tea
-                "Milkshake" -> R.drawable.milkshake
+                "Breakfast Wrap", "Wrap petit-déjeuner" -> R.drawable.breakfast_wrap
+                "Ice Cream", "Crème glacée" -> R.drawable.ice_cream
+                "Coffee", "Café" -> R.drawable.coffee
+                "Tea", "Thé" -> R.drawable.tea
+                "Milkshake", "Lait Frappé" -> R.drawable.milkshake
                 else -> R.drawable.random_food
             }
         }
@@ -76,6 +78,6 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
         }
     }
 
-    
+
 
 }
