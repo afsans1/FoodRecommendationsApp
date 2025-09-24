@@ -59,11 +59,7 @@ fun FoodRecommendationApp(modifier: Modifier = Modifier) {
     }
 }
 
-
-
-
-
-@Preview(showBackground = true, locale = "fr")
+@Preview(showBackground = true)
 @Composable
 fun FoodRecommendationAppPreview() {
     FoodRecommendationAppTheme {

@@ -15,6 +15,8 @@
         <item>Lait Frappé</item>
     </string-array>
 
+    <string name="textFieldTitle">Entrez un aliment que vous souhaitez ajouter</string>
+
     <string name="reroll">Relancer</string>
 
     <string name="findfood">Trouver la nourriture</string>

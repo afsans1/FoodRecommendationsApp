@@ -12,6 +12,8 @@
         <item>Milkshake</item>
     </string-array>
 
+    <string name="textFieldTitle">Enter a food you want to add</string>
+
     <string name="reroll">Reroll</string>
 
     <string name="findfood">Find Food</string>

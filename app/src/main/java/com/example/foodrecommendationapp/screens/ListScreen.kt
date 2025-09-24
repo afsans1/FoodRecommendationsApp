@@ -26,27 +26,40 @@ class ListScreen {
         var addedFood by remember { mutableStateOf("") }
         //This code is from the Week-4-Jetpack-Compose-Navigation-And-Intents powerpoint slide 40
         val onFoodChange = { text: String -> addedFood = text }
-        Column{
+        Column(modifier = modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
             LogoSection()
+            Spacer(modifier = Modifier.height(50.dp))
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     //This code is from the Week-4-Jetpack-Compose-Navigation-And-Intents powerpoint slide 42
                     CustomTextField(
                         //change the title to be in resources
-                        title = "Enter a food you want to add", textState = addedFood,
+                        title = stringResource(R.string.textFieldTitle), textState = addedFood,
                         onTextChange = onFoodChange
                     )
 
                     Spacer(modifier = Modifier.size(30.dp))
-                    Button(onClick = {viewModel.updateFoodList(addedFood)}) {
+                    Button(onClick =
+                        {viewModel.updateFoodList(addedFood)},
+                        modifier.fillMaxWidth())
+                    {
                         Text(text =stringResource(R.string.additem))
                     }
                     viewModel.foodItems.forEach { food ->
-                        Button(onClick = {viewModel.removeButton(food.food_name)}, modifier.fillMaxWidth()) {
+                        Button(onClick = {
+                            viewModel.removeButton(food.food_name)},
+                            modifier.fillMaxWidth())
+                        {
                             Text(text = food.food_name)
                         }
                     }
-                    Button(onClick = {navController.navigate(NavRoutes.Recommendation.route)}) {
+                    Button(onClick = {
+                        //I call the rerollFood method again to not see a menu item
+                        //that was deleted in the list on the home page
+                        viewModel.rerollFood()
+                        navController.navigate(NavRoutes.Recommendation.route)
+                    },modifier.fillMaxWidth())
+                    {
                         Text(text = stringResource(R.string.savechanges))
                     }
 
