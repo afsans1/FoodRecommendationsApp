@@ -1,4 +1,8 @@
 # Mobile-Dev-Assign-2
+To run the app you can either open the project in android studio and run the code or run it on a compatible android device.
+Sources: 
+https://developer.android.com/guide/components/google-maps-intents
+https://developer.android.com/guide/components/intents-common
 
 
 

@@ -1,6 +1,7 @@
 package com.example.foodrecommendationapp.screens
 
 import FoodViewModel
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import androidx.compose.foundation.Image
@@ -50,6 +51,13 @@ class RecommendationScreen {
                         .width(150.dp)
                         .height(150.dp)
                         .clickable {
+                            Intent(Intent.ACTION_MAIN).also { it.`package`="com.google.android.apps.maps"
+                                try {
+                                    context.startActivity(it)
+                                } catch (e:ActivityNotFoundException) {
+                                    e.printStackTrace()
+                                }
+                            }
 
                         },
 
@@ -64,7 +72,7 @@ class RecommendationScreen {
                     onClick = {
                         val webIntent = Intent(
                         Intent.ACTION_VIEW,
-                        "https://www.google.com/search?q=${viewModel.currentFood}".toUri())
+                        "https://www.google.com/search?q=${viewModel.currentFood} near Montreal, QC".toUri())
                         context.startActivity(webIntent)
 
                     },
