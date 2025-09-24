@@ -53,7 +53,7 @@ class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel(
             val newList = foodItems.toMutableList()
             newList.add(MenuItem(addedFood, R.drawable.random_food))
             if (newList.size > foodNames.size + 1) {
-                newList.removeAt(1)
+                newList.removeAt(0)
             }
             foodItems = newList
         }
