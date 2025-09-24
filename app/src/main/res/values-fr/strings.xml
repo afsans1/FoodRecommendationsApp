@@ -2,10 +2,6 @@
 <resources>
     <string name="app_name">ApplicationDeRecommandationAlimentaire</string>
 
-    <string name="app_description">
-        Explorez l\'application De Recommendation Alimentaire pour obtenir des recommandations sur les aliments à essayer avec les emplacements à proximité où les obtenir et amusez-vous à faire une liste d\'aliments !
-    </string>
-
     <string-array name="food_names">
         <item>Croissant</item>
         <item>Wrap petit-déjeuner</item>
@@ -37,8 +33,4 @@
     <string name="savechanges">Enregistrer les modifications</string>
 
     <string name="additem">Ajouter un article</string>
-
-    <string name="randomScreen">Écran aléatoire</string>
-
-    <string name="listScreen">Écran de liste</string>
 </resources>
