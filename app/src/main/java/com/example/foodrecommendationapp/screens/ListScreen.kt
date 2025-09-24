@@ -46,7 +46,7 @@ class ListScreen {
                         }
                     }
                     Button(onClick = {navController.navigate(NavRoutes.Recommendation.route)}) {
-                        Text(text = "Save Changes")
+                        Text(text = stringResource(R.string.savechanges))
                     }
 
                 }

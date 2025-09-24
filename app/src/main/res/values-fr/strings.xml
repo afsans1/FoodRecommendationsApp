@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ApplicationDeRecommandationAlimentaire</string>
+
+    <string name="app_description">
+        Explorez l\'application De Recommendation Alimentaire pour obtenir des recommandations sur les aliments à essayer avec les emplacements à proximité où les obtenir et amusez-vous à faire une liste d\'aliments !
+    </string>
+
+    <string-array name="food_names">
+        <item>Croissant</item>
+        <item>Wrap petit-déjeuner</item>
+        <item>Crème glacée</item>
+        <item>Café</item>
+        <item>Thé</item>
+        <item>lait Frappé</item>
+    </string-array>
+
+    <string name="reroll">Relancer</string>
+
+    <string name="findfood">Trouver la nourriture</string>
+
+    <string name="changelist">Changer la List</string>
+
+    <string name="savechanges">Enregistrer les modifications</string>
+
+    <string name="additem">Ajouter un article</string>
+
+    <string name="randomScreen">Écran aléatoire</string>
+
+    <string name="listScreen">Écran de liste</string>
+</resources>

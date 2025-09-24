@@ -36,7 +36,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@SuppressLint("ViewModelConstructorInComposable")
 @Composable
 fun FoodRecommendationApp(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
@@ -58,27 +57,13 @@ fun FoodRecommendationApp(modifier: Modifier = Modifier) {
             listScreen.ListFood(navController = navController, modifier = modifier,viewModel = viewModel)
         }
     }
-
-
-
-
-
-//    FoodList(modifier, foodNames = stringArrayResource(id = R.array.food_names))
 }
 
 
 
 
 
-//@Composable
-//fun FoodList(modifier: Modifier = Modifier, foodNames: Array<String>){
-//    foodNames.forEach { food->
-//        Text(text = food)
-//        Spacer( modifier.padding(5.dp))
-//    }
-//}
-
-@Preview(showBackground = true)
+@Preview(showBackground = true, locale = "fr")
 @Composable
 fun FoodRecommendationAppPreview() {
     FoodRecommendationAppTheme {
