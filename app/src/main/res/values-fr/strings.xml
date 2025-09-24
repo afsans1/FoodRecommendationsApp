@@ -19,6 +19,8 @@
 
     <string name="findfood">Trouver la nourriture</string>
 
+    <string name="shouldGet">Vous devriez acheter</string>
+
     <string name="changelist">Changer la List</string>
 
     <string name="savechanges">Enregistrer les modifications</string>

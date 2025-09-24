@@ -41,7 +41,7 @@ class RecommendationScreen {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "You should eat a ${viewModel.currentFood}",
+                    text = stringResource(R.string.shouldGet) + ": " + viewModel.currentFood,
                     fontWeight = FontWeight.Bold
                 )
                 Image(
