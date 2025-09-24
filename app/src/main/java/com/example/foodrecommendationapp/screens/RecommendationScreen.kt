@@ -4,6 +4,7 @@ import FoodViewModel
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
@@ -45,7 +46,9 @@ class RecommendationScreen {
         modifier: Modifier,
         viewModel: FoodViewModel,
         context : Context) {
-        Column (modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()), horizontalAlignment = Alignment.CenterHorizontally){
+        Column (modifier = modifier
+            .fillMaxSize()
+            .verticalScroll(rememberScrollState()), horizontalAlignment = Alignment.CenterHorizontally){
             LogoSection()
             Spacer(modifier = Modifier.height(50.dp))
             Column(
@@ -67,15 +70,14 @@ class RecommendationScreen {
 //https://gitlab.com/crdavis/intentsexamplecode/-/blob/master/app/src/main/java/com/example/intentsexamplecode/MainActivity.kt?ref_type=heads
 //: https://developer.android.com/guide/components/intentscommon
 //https://developer.android.com/guide/components/google-maps-intents
-
-                            Intent(Intent.ACTION_MAIN).also { it.`package`="com.google.android.apps.maps"
-                                try {
-                                    context.startActivity(it)
-                                } catch (e:ActivityNotFoundException) {
-                                    e.printStackTrace()
-                                }
+                            val gmmIntentUri = Uri.parse("geo:0,0?q=${viewModel.currentFood}")
+                            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+                            mapIntent.setPackage("com.google.android.apps.maps")
+                            try {
+                                context.startActivity(mapIntent)
+                            } catch (e: ActivityNotFoundException) {
+                                e.printStackTrace()
                             }
-
                         },
 
                     )
