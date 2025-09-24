@@ -38,9 +38,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun FoodRecommendationApp(modifier: Modifier = Modifier) {
+    val context = LocalContext.current
     val navController = rememberNavController()
-    val foodNamesArray = stringArrayResource(R.array.food_names)
-    val foodImagesArray = stringArrayResource(R.array.food_images)
+    val foodNamesArray = stringArrayResource(R.array.food_names).toList()
+//https://stackoverflow.com/questions/75227494/android-getresources-getidentifier-replacement
+    val foodImagesArray = stringArrayResource(R.array.food_images).map { imageName ->
+        context.resources.getIdentifier(imageName, "drawable", context.packageName)
+    }.toList()
+
     val factory = viewModelFactory {
         initializer { FoodViewModel(foodNamesArray,foodImagesArray) }
     }
@@ -51,7 +56,7 @@ fun FoodRecommendationApp(modifier: Modifier = Modifier) {
             startDestination = Recommendation.route,
             modifier = modifier){
         composable( Recommendation.route) {
-            val context = LocalContext.current
+
             recommendationScreen.Recommendation(navController = navController, modifier = modifier,viewModel = viewModel, context = context)
         }
         composable(ListFood.route) {

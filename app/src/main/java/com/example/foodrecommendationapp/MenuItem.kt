@@ -8,5 +8,5 @@ import androidx.compose.runtime.MutableState
 //and a Int property that stores the address of that food's image
 data class MenuItem (
     var food_name: String,
-    var food_image: String,
+    var food_image: Int,
 )
