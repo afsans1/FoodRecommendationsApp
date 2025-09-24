@@ -1,13 +1,13 @@
 package com.example.foodrecommendationapp
 
 import FoodViewModel
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -21,7 +21,6 @@ import com.example.foodrecommendationapp.screens.NavRoutes.ListFood
 import com.example.foodrecommendationapp.screens.NavRoutes.Recommendation
 import com.example.foodrecommendationapp.screens.RecommendationScreen
 import com.example.foodrecommendationapp.ui.theme.FoodRecommendationAppTheme
-import androidx.compose.ui.platform.LocalContext
 
 
 class MainActivity : ComponentActivity() {
@@ -56,7 +55,6 @@ fun FoodRecommendationApp(modifier: Modifier = Modifier) {
             startDestination = Recommendation.route,
             modifier = modifier){
         composable( Recommendation.route) {
-
             recommendationScreen.Recommendation(navController = navController, modifier = modifier,viewModel = viewModel, context = context)
         }
         composable(ListFood.route) {

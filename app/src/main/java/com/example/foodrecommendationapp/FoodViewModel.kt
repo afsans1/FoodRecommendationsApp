@@ -1,20 +1,12 @@
-import android.content.Intent
-import android.net.Uri
-import android.view.Menu
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.res.stringResource
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.initializer
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.foodrecommendationapp.MenuItem
 import com.example.foodrecommendationapp.R
 
 class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel() {
-
     //    this method creates the list of MenuItems
 //    by assigning the correct image based on the menu item name
 //    both lists of images and names contain the same items in order so they
@@ -29,7 +21,7 @@ class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel(
 
     // Properly initialized to something valid
     // I decided to make the initial value to croissant since
-    // that food item has the same name in both english and french so there
+    // that food item(Croissant) has the same name in both english and french so there
     // arent any discrepancies between the name of the item and the language
     // the device is set to
     var currentFood by mutableStateOf("Croissant")
@@ -40,8 +32,9 @@ class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel(
 
 
     //this method randomly changes what the current item is by
-    //randomly getting an item from the array of MenuItems and
-    //and assigning it the right image to it based on the name(in english or in french)
+    //randomly getting an item from the array of MenuItems
+    //I define currentFood and currentImage to be the new food
+    //to be correctly displayed on the screen
     fun rerollFood() {
         if (foodItems.isNotEmpty()) {
             val newFood = foodItems.random()
@@ -71,7 +64,7 @@ class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel(
         //and foodItems is assigned to be that list that it turned into
         //a mutable list
         fun removeButton(food: MenuItem) {
-            //validation so that there is at least on food item
+            //validation so that there is at least one food item
             if (foodItems.size > 1) {
                 val newList = foodItems.filter { it != food }
                 foodItems = newList.toMutableList()

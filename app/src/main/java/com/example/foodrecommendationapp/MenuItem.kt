@@ -1,7 +1,5 @@
 package com.example.foodrecommendationapp
 
-import androidx.compose.runtime.MutableState
-
 
 //this class defines a MenuItem
 //It contains a String property that represnts the food's name
