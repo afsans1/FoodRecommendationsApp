@@ -15,6 +15,15 @@
         <item>Lait Frappé</item>
     </string-array>
 
+    <string-array name="food_images">
+        <item>R.drawable.croissant</item>
+        <item>R.drawable.breakfast_wrap</item>
+        <item>R.drawable.ice_cream</item>
+        <item>R.drawable.coffee</item>
+        <item>R.drawable.tea</item>
+        <item>R.drawable.milkshake</item>
+    </string-array>
+
     <string name="textFieldTitle">Entrez un aliment que vous souhaitez ajouter</string>
 
     <string name="reroll">Relancer</string>

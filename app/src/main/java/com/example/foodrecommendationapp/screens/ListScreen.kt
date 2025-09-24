@@ -3,6 +3,8 @@ package com.example.foodrecommendationapp.screens
 import FoodViewModel
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -26,11 +28,12 @@ class ListScreen {
         var addedFood by remember { mutableStateOf("") }
         //This code is from the Week-4-Jetpack-Compose-Navigation-And-Intents powerpoint slide 40
         val onFoodChange = { text: String -> addedFood = text }
-        Column(modifier = modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
+        Column(modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()), horizontalAlignment = Alignment.CenterHorizontally){
             LogoSection()
             Spacer(modifier = Modifier.height(50.dp))
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Column(modifier = modifier.padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally) {
                     //This code is from the Week-4-Jetpack-Compose-Navigation-And-Intents powerpoint slide 42
                     CustomTextField(
                         //change the title to be in resources
@@ -47,10 +50,10 @@ class ListScreen {
                     }
                     viewModel.foodItems.forEach { food ->
                         Button(onClick = {
-                            viewModel.removeButton(food.food_name)},
+                            viewModel.removeButton(food.toString())},
                             modifier.fillMaxWidth())
                         {
-                            Text(text = food.food_name)
+                            Text(text = food.toString())
                         }
                     }
                     Button(onClick = {

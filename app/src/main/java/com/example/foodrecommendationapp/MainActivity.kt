@@ -40,8 +40,9 @@ class MainActivity : ComponentActivity() {
 fun FoodRecommendationApp(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
     val foodNamesArray = stringArrayResource(R.array.food_names)
+    val foodImagesArray = stringArrayResource(R.array.food_images)
     val factory = viewModelFactory {
-        initializer { FoodViewModel(foodNamesArray) }
+        initializer { FoodViewModel(foodNamesArray,foodImagesArray) }
     }
     val viewModel: FoodViewModel = viewModel(factory = factory)
     val recommendationScreen = RecommendationScreen()

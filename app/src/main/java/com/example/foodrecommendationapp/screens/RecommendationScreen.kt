@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,7 +40,7 @@ class RecommendationScreen {
         modifier: Modifier,
         viewModel: FoodViewModel,
         context : Context) {
-        Column (modifier = modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
+        Column (modifier = modifier.fillMaxSize().verticalScroll(rememberScrollState()), horizontalAlignment = Alignment.CenterHorizontally){
             LogoSection()
             Spacer(modifier = Modifier.height(50.dp))
             Column(
@@ -46,7 +48,7 @@ class RecommendationScreen {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(R.string.shouldGet) + ": " + viewModel.currentFood,
+                    text = stringResource(R.string.shouldGet) + ": " + viewModel.currentFood.toString(),
                     fontWeight = FontWeight.Bold
                 )
                 Image(
