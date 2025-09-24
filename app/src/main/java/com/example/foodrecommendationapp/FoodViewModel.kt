@@ -1,7 +1,10 @@
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
@@ -41,7 +44,6 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
     var currentFood by mutableStateOf("Coffee")
     var currentImage by mutableIntStateOf(R.drawable.coffee)
     var foodItems by mutableStateOf(getMenuItems(foodNames).toMutableList())
-    var i by mutableIntStateOf(0)
 
     fun rerollFood() {
         if(foodItems.isNotEmpty()) {
@@ -61,14 +63,9 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
     }
 
     fun updateFoodList(addedFood: String) {
-        if (i < foodItems.size) {
-            val newList = foodItems.toMutableList()
-            newList[i] = MenuItem(addedFood, R.drawable.random_food)
-            foodItems = newList
-            i += 1
-            //validated so it adds from the top again
-            if (i == foodItems.size) i = 0
-        }
+        val newList = foodItems.toMutableList()
+        newList.add(MenuItem(addedFood, R.drawable.random_food))
+        foodItems = newList
     }
 
     fun removeButton(foodName: String){
@@ -78,5 +75,7 @@ class FoodViewModel(foodNames: Array<String>) : ViewModel() {
             foodItems = newList.toMutableList()
         }
     }
+
+    
 
 }

@@ -21,6 +21,7 @@ import com.example.foodrecommendationapp.screens.NavRoutes.ListFood
 import com.example.foodrecommendationapp.screens.NavRoutes.Recommendation
 import com.example.foodrecommendationapp.screens.RecommendationScreen
 import com.example.foodrecommendationapp.ui.theme.FoodRecommendationAppTheme
+import androidx.compose.ui.platform.LocalContext
 
 
 class MainActivity : ComponentActivity() {
@@ -50,7 +51,8 @@ fun FoodRecommendationApp(modifier: Modifier = Modifier) {
             startDestination = Recommendation.route,
             modifier = modifier){
         composable( Recommendation.route) {
-            recommendationScreen.Recommendation(navController = navController, modifier = modifier,viewModel = viewModel)
+            val context = LocalContext.current
+            recommendationScreen.Recommendation(navController = navController, modifier = modifier,viewModel = viewModel, context = context)
         }
         composable(ListFood.route) {
             listScreen.ListFood(navController = navController, modifier = modifier,viewModel = viewModel)
