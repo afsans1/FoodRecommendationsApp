@@ -53,10 +53,9 @@ class FoodViewModel(foodNames: List<String>, foodImages: List<Int>) : ViewModel(
             val newList = foodItems.toMutableList()
             newList.add(MenuItem(addedFood, R.drawable.random_food))
             if (newList.size > foodNames.size + 1) {
-                foodItems = newList.drop(0)
-            } else {
-                foodItems = newList
+                newList.removeAt(1)
             }
+            foodItems = newList
         }
 
         //this method stores all the menu items that are not

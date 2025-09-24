@@ -63,7 +63,7 @@ class RecommendationScreen {
 //https://gitlab.com/crdavis/intentsexamplecode/-/blob/master/app/src/main/java/com/example/intentsexamplecode/MainActivity.kt?ref_type=heads
 //: https://developer.android.com/guide/components/intentscommon
 //https://developer.android.com/guide/components/google-maps-intents
-                            val gmmIntentUri = Uri.parse("geo:0,0?q=${viewModel.currentFood}")
+                            val gmmIntentUri = "geo:0,0?q=${viewModel.currentFood}".toUri()
                             val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
                             mapIntent.setPackage("com.google.android.apps.maps")
                             try {
