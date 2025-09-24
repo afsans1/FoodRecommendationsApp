@@ -23,6 +23,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -48,7 +49,7 @@ class RecommendationScreen {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(R.string.shouldGet) + ": " + viewModel.currentFood.toString(),
+                    text = stringResource(R.string.shouldGet) + ": " + viewModel.currentFood,
                     fontWeight = FontWeight.Bold
                 )
                 Image(

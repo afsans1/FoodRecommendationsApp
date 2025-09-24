@@ -13,7 +13,7 @@ import com.example.foodrecommendationapp.MenuItem
 import com.example.foodrecommendationapp.R
 
 class FoodViewModel(foodNames: Array<String>, foodImages: Array<String>) : ViewModel() {
-    
+
 //    this method creates the list of MenuItems
 //    by assigning the correct image based on the menu item name
 //    both lists of images and names contain the same items in order so they
@@ -32,7 +32,9 @@ class FoodViewModel(foodNames: Array<String>, foodImages: Array<String>) : ViewM
     // the device is set to
     var currentFood by mutableStateOf("Croissant")
     var currentImage by mutableIntStateOf(R.drawable.croissant)
-    var foodItems by mutableStateOf(foodNames.toMutableList())
+    var foodItems = getMenuItems(foodNames, foodImages)
+    val foodNames = foodNames
+    val foodImages = foodImages
 
 
     //this method randomly changes what the current item is by
@@ -40,8 +42,8 @@ class FoodViewModel(foodNames: Array<String>, foodImages: Array<String>) : ViewM
     //and assigning it the right image to it based on the name(in english or in french)
     fun rerollFood() {
         if(foodItems.isNotEmpty()) {
-            val newFood = foodItems.random()
-            currentFood = newFood.toString()
+            val newFood = getMenuItems(foodNames, foodImages).random()
+            currentFood = newFood.food_name
 
             //have translation to get the correct image based on the foodname
             currentImage = when (newFood.toString()) {
@@ -62,7 +64,7 @@ class FoodViewModel(foodNames: Array<String>, foodImages: Array<String>) : ViewM
     //The foodItems list is then assigned to be the new modified list of menu items
     fun updateFoodList(addedFood: String) {
         val newList = foodItems.toMutableList()
-        newList.add(MenuItem(addedFood, R.drawable.random_food.toString()).toString())
+        newList.add(MenuItem(addedFood, R.drawable.random_food.toString()))
         if(foodItems.size >= 6 ){
             foodItems.drop(0)
         }
