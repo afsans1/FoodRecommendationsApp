@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">FoodRecommendationApp</string>
+
+    <string-array name="food_names">
+        <item>Croissant</item>
+        <item>Breakfast Wrap</item>
+        <item>Ice Cream</item>
+        <item>Coffee</item>
+        <item>Tea</item>
+        <item>Milkshake</item>
+    </string-array>
+
+    <string-array name="food_images">
+        <item>croissant</item>
+        <item>breakfast_wrap</item>
+        <item>ice_cream</item>
+        <item>coffee</item>
+        <item>tea</item>
+        <item>milkshake</item>
+    </string-array>
+
+    <string name="textFieldTitle">Enter a food you want to add</string>
+
+    <string name="reroll">Reroll</string>
+
+    <string name="findfood">Find Food</string>
+
+    <string name="shouldGet">You should get</string>
+
+
+    <string name="changelist">Change List</string>
+
+    <string name="savechanges">Save Changes</string>
+
+    <string name="additem">Add Item</string>
+
 </resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ApplicationDeRecommandationAlimentaire</string>
+
+    <string-array name="food_names">
+        <item>Croissant</item>
+        <item>Wrap petit-déjeuner</item>
+        <item>Crème glacée</item>
+        <item>Café</item>
+        <item>Thé</item>
+        <item>Lait Frappé</item>
+    </string-array>
+
+    <string-array name="food_images">
+        <item>croissant</item>
+        <item>breakfast_wrap</item>
+        <item>ice_cream</item>
+        <item>coffee</item>
+        <item>tea</item>
+        <item>milkshake</item>
+    </string-array>
+
+    <string name="textFieldTitle">Entrez un aliment que vous souhaitez ajouter</string>
+
+    <string name="reroll">Relancer</string>
+
+    <string name="findfood">Trouver la nourriture</string>
+
+    <string name="shouldGet">Vous devriez acheter</string>
+
+    <string name="changelist">Changer la List</string>
+
+    <string name="savechanges">Enregistrer les modifications</string>
+
+    <string name="additem">Ajouter un article</string>
+</resources>
