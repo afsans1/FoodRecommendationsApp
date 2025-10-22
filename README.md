@@ -10,8 +10,8 @@
     of the food to find a place near you by clicking on the find food button. You can change the list of foods by clicking
     on the change list button. You can add a food to the list or you can even remove certain foods by clicking on that specific 
     food button. Once you are satisfied with your changes you can go back to the home page by saving your changes.  
-![ScreenShot](app/src/main/res/drawable/screenshot1.png)
-![ScreenShot](app/src/main/res/drawable/screenshot2.png)
+![ScreenShot](app\src\main\res\drawable\screenshot1.png)
+![ScreenShot](app\src\main\res\drawable\screenshot2.png)
 
 ## Setup Instructions
     To run the app you can either open the project in android studio and run the code or run it on a compatible android device.
